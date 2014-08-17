@@ -59,6 +59,28 @@ Note: If you include option.js in your browser, it will be available as window.O
 
 option.js exposes a single top level function called Option. Pass it a value to create either a `Some` or a `None`, depending on the value. `null` and `undefined` values will return `None`, all other values will return a `Some` instance containing the value.
 
+For example:
+
+```
+  var screenName;
+  Option(screenName); // screenName is undefined, so this returns None
+
+  screenName = null;
+  Option(screenName); // screenName is null, so this also returns None
+
+  screenName = "shinypb";
+  Option(screenName); // this returns Some("shinypb")
+```
+
+You can also create a `Some` explicitly using `Option.Some`:
+
+```
+  var screenName;
+  Option.Some(screenName); // returns Some(undefined)
+```
+
+Similarly, you can reference `Option.None`.
+
 ### .get
 On `None`, calling this will throw a `NoneGetError`.
 
